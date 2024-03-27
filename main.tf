@@ -15,9 +15,9 @@ provider "aws" {
 
 # Files upload for lambda_function_1
 data "archive_file" "lambda_function_1_file" {
-  type             = "zip"
-  source_dir       = "./src/lambda/lambda_function_1"
-  output_path      = "./src/lambda/lambda_function_1/lambda_function_1.zip"
+  type        = "zip"
+  source_dir  = "./src/lambda/lambda_function_1"
+  output_path = "./src/lambda/lambda_function_1/lambda_function_1.zip"
 }
 
 
@@ -35,9 +35,9 @@ module "lambda_function_1" {
 
 # Files upload for lambda_function_2
 data "archive_file" "lambda_function_2_file" {
-  type             = "zip"
-  source_dir       = "./src/lambda/lambda_function_2"
-  output_path      = "./src/lambda/lambda_function_2/lambda_function_2.zip"
+  type        = "zip"
+  source_dir  = "./src/lambda/lambda_function_2"
+  output_path = "./src/lambda/lambda_function_2/lambda_function_2.zip"
 }
 
 
