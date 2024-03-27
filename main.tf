@@ -63,6 +63,25 @@ module "lambda_function_2" {
   lambda_role            = module.lambda_role.iam_role_arn
 }
 
+# Files upload for lambda_function_1
+data "archive_file" "lambda_function_3_file" {
+  type        = "zip"
+  source_dir  = "./src/lambda/lambda_function_3"
+  output_path = "./src/lambda/lambda_function_1/lambda_function_3.zip"
+}
+
+
+module "lambda_function_3" {
+  source = "terraform-aws-modules/lambda/aws"
+
+  function_name          = "example_lambda_3"
+  local_existing_package = data.archive_file.lambda_function_3_file.output_path
+  handler                = "lambda_function_1.handler"
+  runtime                = "nodejs18.x"
+  create_package         = false
+  lambda_role            = module.lambda_role.iam_role_arn
+}
+
 
 module "lambda_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
@@ -78,3 +97,5 @@ module "lambda_role" {
   ]
 
 }
+
+
