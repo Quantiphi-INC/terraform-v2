@@ -67,7 +67,7 @@ module "lambda_function_2" {
 data "archive_file" "lambda_function_3_file" {
   type        = "zip"
   source_dir  = "./src/lambda/lambda_function_3"
-  output_path = "./src/lambda/lambda_function_1/lambda_function_3.zip"
+  output_path = "./src/lambda/lambda_function_3/lambda_function_3.zip"
 }
 
 
