@@ -1,6 +1,6 @@
 .ignore
 .terraform*
-.terraform/*
+.terraform/
 terraform.plan
 terraform.tfvars
 tfplan
