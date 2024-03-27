@@ -1,6 +1,7 @@
 .ignore
 .terraform*
-.terraform/
+.terraform/modules/
+.terraform/providers/
 terraform.plan
 terraform.tfvars
 tfplan
