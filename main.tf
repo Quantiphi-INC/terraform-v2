@@ -76,7 +76,7 @@ module "lambda_function_3" {
 
   function_name          = "example_lambda_3"
   local_existing_package = data.archive_file.lambda_function_3_file.output_path
-  handler                = "lambda_function_1.handler"
+  handler                = "lambda_function_3.handler"
   runtime                = "nodejs18.x"
   create_package         = false
   lambda_role            = module.lambda_role.iam_role_arn
