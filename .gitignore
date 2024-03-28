@@ -1,13 +1,9 @@
-.ignore
+.idea
+.DS_Store
 .terraform*
-.terraform/modules/
-.terraform/providers/
-terraform.plan
-terraform.tfvars
-tfplan
+**/.terraform/*
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 node_modules
-package-lock.json
 .env
 *.zip
