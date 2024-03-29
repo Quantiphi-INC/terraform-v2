@@ -1,3 +1,24 @@
+# Files upload for lambda_function_5
+data "archive_file" "lambda_function_5_file" {
+  type        = "zip"
+  source_dir  = "./src/lambda/lambda_function_5"
+  output_path = "./src/lambda/lambda_function_5/lambda_function_1.zip"
+}
+
+
+module "lambda_function_5" {
+  source = "terraform-aws-modules/lambda/aws"
+
+  function_name          = "example_lambda_5"
+  local_existing_package = data.archive_file.lambda_function_5_file.output_path
+  handler                = "lambda_function_5.handler"
+  runtime                = "nodejs18.x"
+  create_package         = false
+  lambda_role            = module.lambda_role.iam_role_arn
+}
+
+
+
 # Files upload for lambda_function_1
 data "archive_file" "lambda_function_1_file" {
   type        = "zip"
