@@ -23,4 +23,4 @@ inputDF.show(5)
 #converting to pandas dataframe
 df = inputDF.toDF()
 df_pd = df.toPandas()
-print('test script has successfully ran')
+print('test script has successfully ran in dev env')
