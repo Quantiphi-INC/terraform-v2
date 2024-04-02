@@ -43,7 +43,7 @@ resource "aws_s3_object" "create_script_s3" {
 resource "aws_glue_job" "new_test_deploy_script" {
   glue_version      = "4.0"                                                                       #optional
   max_retries       = 0                                                                           #optional
-  name              = var.glue_job_name_1                                                           #required
+  name              = var.glue_job_name_1                                                         #required
   description       = "test the deployment of an aws glue job to aws glue service with terraform" #description
   role_arn          = module.glue_service_role.iam_role_arn                                       #required
   number_of_workers = 2                                                                           #optional, defaults to 5 if not set
@@ -51,7 +51,7 @@ resource "aws_glue_job" "new_test_deploy_script" {
   timeout           = "60"                                                                        #optional
   execution_class   = "FLEX"                                                                      #optional
   command {
-    name            = "glueetl"                                               #optional
+    name            = "glueetl"                                                 #optional
     script_location = "s3://${var.s3_bucket}/${var.glue_job_test_script_loc_1}" #required
   }
   default_arguments = {
