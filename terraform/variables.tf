@@ -15,3 +15,9 @@ variable "access_key" {
 variable "secret_key" {
   type = string
 }
+variable "glue_job_name" {
+  type = string
+}
+variable "glue_job_test_script_loc" {
+  type = string
+}
