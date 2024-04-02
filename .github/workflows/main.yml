@@ -35,3 +35,8 @@ jobs:
       run: cd terraform && terraform plan -var="region=${{ secrets.AWS_REGION }}" -var="access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -var="secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" -var-file="dev.tfvars"
       # env:
       #   TF_VAR_s3_bucket: ${{ secrets.S3_BUCKET }}
+    - name: Terraform Apply
+      # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+      run: cd terraform && terraform apply -auto-approve -var="region=${{ secrets.AWS_REGION }}" -var="access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -var="secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" -var-file="dev.tfvars"
+      # env: 
+      #   TF_VAR_s3_bucket: ${{ secrets.S3_BUCKET }}
