@@ -32,6 +32,6 @@ jobs:
     - name: Terraform Format
       run: cd terraform && ls && terraform fmt -check
     - name: Terraform Plan
-      run: cd terraform && terraform plan -var="region=${{ secrets.AWS_REGION }}" -var="access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -var="secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }} -var-file=${{ secrets.DEV_VARIABLES }}"
+      run: cd terraform && terraform plan -var="region=${{ secrets.AWS_REGION }}" -var="access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -var="secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}"
       env:
-        TF_VAR_DEV_VARIABLES: ${{ secrets.DEV_VARIABLES }}      
+        TF_VAR_s3_bucket: ${{ secrets.S3_BUCKET }}      
