@@ -16,8 +16,8 @@ resource "aws_glue_job" "test_deploy_script" {
   timeout           = "60"                                                                        #optional
   execution_class   = "FLEX"                                                                      #optional
   command {
-    name            = "glueetl"                    #optional
-    script_location = var.glue_job_test_script_loc #required
+    name            = "glueetl"                                               #optional
+    script_location = "s3://${var.s3_bucket}/${var.glue_job_test_script_loc}" #required
   }
   default_arguments = {
     "--class"                   = "GlueApp"
