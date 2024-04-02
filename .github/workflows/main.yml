@@ -2,7 +2,7 @@ name: 'Terraform'
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "feature/gluejob" ]
 
 permissions:
   contents: read
@@ -11,7 +11,7 @@ jobs:
   terraform:
     name: 'Terraform deploy ...'
     runs-on: ubuntu-latest
-    environment: production
+    environment: development
     defaults:
       run:
         shell: bash
